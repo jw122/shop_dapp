@@ -1,5 +1,5 @@
 body {
-  font-family: "Open Sans", sans-serif;
+/*  font-family: "Open Sans", sans-serif;*/
 }
 
 label {
@@ -13,10 +13,11 @@ input {
   font-size: 16px;
 }
 
+/*
 button {
   font-size: 16px;
   padding: 5px;
-}
+}*/
 
 h1, h2 {
   display: inline-block;
