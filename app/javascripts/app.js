@@ -93,12 +93,26 @@ window.App = {
         // Once we're done retrieving cart items, we use the array to fill out the rows in the front-end
         // table.
         self.setupCartRows();
+        self.populateCartQty();
       });
     });
   },
 
+  populateCartQty: function() {
+    let itemNames  = Object.keys(cartItems);
+    for (var i = 0; i < itemNames.length; i++) {
+      let currItem = itemNames[i];
+      Shop.deployed().then(function(contractInstance) {
+        contractInstance.getItemCount.call(currItem).then(function(v) {
+          $("#" + cartItems[currItem]).html(v.toString());
+        });
+      });
+    }
+  },
+
   /* This function goes through each item in the cartItems array and places it in the HTML table. */
   setupCartRows: function() {
+    $("#cartTable tbody tr").remove();
     Object.keys(cartItems).forEach(function (item) { 
       $("#cartItem-rows").append("<tr><td>" + item + "</td><td id='" + cartItems[item] + "'></td></tr>");
     });
@@ -138,8 +152,8 @@ window.App = {
       return deployedContract.addItem(item, {from: account});
     }).then(function(value){
       console.log("item added");
-      populateCart();
-      updateCartTotals();
+      self.populateCart();
+      self.updateCartTotals();
 
     }).catch(function(e){
       console.log(e);
