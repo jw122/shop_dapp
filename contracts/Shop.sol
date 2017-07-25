@@ -58,5 +58,9 @@ contract Shop {
   function getTotalCount() constant returns (uint) {
     return itemsInCart;
   }
+  
+  function getSeller() constant returns(address) {
+    return seller;
+  }
 
 }

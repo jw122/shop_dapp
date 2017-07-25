@@ -22049,6 +22049,19 @@ module.exports = {
 		},
 		{
 			"constant": true,
+			"inputs": [],
+			"name": "getTotalCount",
+			"outputs": [
+				{
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"payable": false,
+			"type": "function"
+		},
+		{
+			"constant": true,
 			"inputs": [
 				{
 					"name": "",
@@ -22117,6 +22130,32 @@ module.exports = {
 		{
 			"constant": true,
 			"inputs": [],
+			"name": "itemsInCart",
+			"outputs": [
+				{
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"payable": false,
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [],
+			"name": "getSeller",
+			"outputs": [
+				{
+					"name": "",
+					"type": "address"
+				}
+			],
+			"payable": false,
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [],
 			"name": "getTotalPrice",
 			"outputs": [
 				{
@@ -22138,7 +22177,7 @@ module.exports = {
 			"type": "constructor"
 		}
 	],
-	"unlinked_binary": "0x6060604052341561000c57fe5b60405160208061055a83398101604052515b60008054600160a060020a03338116600160a060020a03199283161783556001805491851691909216178155600282815560046020527f90cc07102e7701a40d3b2ba6a8c5e498b2975917b3e06e2c671894977251252c8190557ff1ed18ef7ef4bc50b5a966499966566f5e3deeedf3332b40355c637e4efbdf348290557f9f94ae92387be583cc3362a4289bd23feea8ead697ab7397d00536aaba6bcf87557fe49ec8d58da158425687a31550ad192302fb9e3db36bab9cce8d38187f73c23c81905560037f1cea2f3f7efb5c8afe116e8a774b2d0ff04ac9c6037322fee9b131beb03a2d87557f68657273686579734b69737365730000000000000000000000000000000000009091527f69df4685c3c43228d8eb321d9622cb906611c2f973dc3643eb9dbfa2a25e66e3555b505b6103fc8061015e6000396000f300606060405236156100885763ffffffff60e060020a60003504166305e410dd811461008a57806308551a53146100f55780631d586f7c146101215780632c95ad52146101465780633da8bfc91461015b578063641f2a5e1461017d5780637150d8ae146101a2578063b51dc543146101ce578063b67dfb5c146101f3578063f475409f14610218575bfe5b341561009257fe5b61009a61023a565b60408051602080825283518183015283519192839290830191858101910280838382156100e2575b8051825260208311156100e257601f1990920191602091820191016100c2565b5050509050019250505060405180910390f35b34156100fd57fe5b61010561029a565b60408051600160a060020a039092168252519081900360200190f35b341561012957fe5b6101346004356102a9565b60408051918252519081900360200190f35b341561014e57fe5b6101596004356102cc565b005b341561016357fe5b61013461031e565b60408051918252519081900360200190f35b341561018557fe5b610134600435610324565b60408051918252519081900360200190f35b34156101aa57fe5b610105610336565b60408051600160a060020a039092168252519081900360200190f35b34156101d657fe5b610134600435610345565b60408051918252519081900360200190f35b34156101fb57fe5b610134600435610357565b60408051918252519081900360200190f35b341561022057fe5b61013461036c565b60408051918252519081900360200190f35b610242610373565b600380548060200260200160405190810160405280929190818152602001828054801561028f57602002820191906000526020600020905b8154815260019091019060200180831161027a575b505050505090505b90565b600154600160a060020a031681565b60038054829081106102b757fe5b906000526020600020900160005b5054905081565b60038054600181016102de8382610385565b916000526020600020900160005b508290555060008181526004602090815260408083205460028054909101905560059091529020805460010190555b50565b60025481565b60046020526000908152604090205481565b600054600160a060020a031681565b60056020526000908152604090205481565b6000818152600560205260409020545b919050565b6002545b90565b60408051602081019091526000815290565b8154818355818115116103a9576000838152602090206103a99181019083016103af565b5b505050565b61029791905b808211156103c957600081556001016103b5565b5090565b905600a165627a7a723058203bcf5fdc584d3185a7e53a570108b5413c6509445e70a279e8d0a1200ce97af70029",
+	"unlinked_binary": "0x6060604052341561000c57fe5b60405160208061061a83398101604052515b60008054600160a060020a03338116600160a060020a031992831617835560018054918516919092161781556002828155600383815560056020527ff7674c88190274f8845060ed4c67705fff631cb7c841018d03b0413633adc21b8290557f86a632bb971456b39d57b53a004210a9cfc6ef0d1898ce8b540a2a8a2304f9a78390557fa98bbc2ec958996c551ce79a2c86517cc7de6343e571bb8aa7e4c66a9caa8ec2919091557fa751860922fd917c36ea1f0973d4efb58a4fd9caabf180f734a8151cc32a02818290557f1d201e5301ca74cdafbe41900b17dcb5a00c58baf337fb14f0c6ed7f62a27a87557f68657273686579734b69737365730000000000000000000000000000000000009091527f29787e63e5a10365bbdef98c224d3a2cc1fe712041873089e5aaee4da54059dc555b505b6104b6806101646000396000f300606060405236156100a95763ffffffff60e060020a60003504166305e410dd81146100ab57806308551a53146101165780631d586f7c146101425780632c95ad52146101675780633da8bfc91461017c57806356d42bb31461019e578063641f2a5e146101c05780637150d8ae146101e5578063b51dc54314610211578063b67dfb5c14610236578063cd5a898e1461025b578063dbd0e1b61461027d578063f475409f146102a9575bfe5b34156100b357fe5b6100bb6102cb565b6040805160208082528351818301528351919283929083019185810191028083838215610103575b80518252602083111561010357601f1990920191602091820191016100e3565b5050509050019250505060405180910390f35b341561011e57fe5b61012661032b565b60408051600160a060020a039092168252519081900360200190f35b341561014a57fe5b61015560043561033a565b60408051918252519081900360200190f35b341561016f57fe5b61017a60043561035d565b005b341561018457fe5b6101556103bb565b60408051918252519081900360200190f35b34156101a657fe5b6101556103c1565b60408051918252519081900360200190f35b34156101c857fe5b6101556004356103c8565b60408051918252519081900360200190f35b34156101ed57fe5b6101266103da565b60408051600160a060020a039092168252519081900360200190f35b341561021957fe5b6101556004356103e9565b60408051918252519081900360200190f35b341561023e57fe5b6101556004356103fb565b60408051918252519081900360200190f35b341561026357fe5b610155610410565b60408051918252519081900360200190f35b341561028557fe5b610126610416565b60408051600160a060020a039092168252519081900360200190f35b34156102b157fe5b610155610426565b60408051918252519081900360200190f35b6102d361042d565b600480548060200260200160405190810160405280929190818152602001828054801561032057602002820191906000526020600020905b8154815260019091019060200180831161030b575b505050505090505b90565b600154600160a060020a031681565b600480548290811061034857fe5b906000526020600020900160005b5054905081565b600480546001810161036f838261043f565b916000526020600020900160005b508290555060008181526005602090815260408083205460028054909101905560069091529020805460019081019091556003805490910190555b50565b60025481565b6003545b90565b60056020526000908152604090205481565b600054600160a060020a031681565b60066020526000908152604090205481565b6000818152600660205260409020545b919050565b60035481565b600154600160a060020a03165b90565b6002545b90565b60408051602081019091526000815290565b81548183558181151161046357600083815260209020610463918101908301610469565b5b505050565b61032891905b80821115610483576000815560010161046f565b5090565b905600a165627a7a72305820d842cb2be7590290252a8d6d88dd523d8af397b7002db6bd0d7c7e2c1009b07d0029",
 	"networks": {
 		"1500689487744": {
 			"events": {},
@@ -22161,12 +22200,18 @@ module.exports = {
 		"1500994241545": {
 			"events": {},
 			"links": {},
-			"address": "0xbe9e2739b4a5fa769c468f48dd088628e7c62f1f",
-			"updated_at": 1500994305637
+			"address": "0x75f3f1306ee3bd3bf3b92ce2d73ab09b69e2abfb",
+			"updated_at": 1501005644471
+		},
+		"1501007742634": {
+			"events": {},
+			"links": {},
+			"address": "0x5f15de72e98c633fe57c5d2174724b5885adbb16",
+			"updated_at": 1501007784575
 		}
 	},
 	"schema_version": "0.0.5",
-	"updated_at": 1500994305637
+	"updated_at": 1501007784575
 };
 
 /***/ }),
@@ -22292,7 +22337,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 var Shop = __WEBPACK_IMPORTED_MODULE_2_truffle_contract___default()(__WEBPACK_IMPORTED_MODULE_3__build_contracts_Shop_json___default.a);
 
 // A list to represent the cart array from the contract
-let cartItems = {}
+let cartItems = []
 
 // The following code is simple to show off interacting with your contracts.
 // As your needs grow you will likely need to change its form and structure.
@@ -22324,7 +22369,7 @@ window.App = {
       // Upon launching the window, we want to refresh the buyer's balance and update the cart.
       self.refreshBalance();
       self.populateCart();
-      self.updateCartTotals();
+      //self.updateCartTotals();
     });
   },
 
@@ -22362,41 +22407,52 @@ window.App = {
     var self = this;
     var deployedContract;
 
+
     Shop.deployed().then(function(instance) {
       deployedContract = instance;
-      deployedContract.getCartItems().then(function(cartArray){
-        console.log(cartArray)
-        for (let i=0; i < cartArray.length; i++) {
-          /*We had stored item names as byes32 on the blockchain,
-          so we'll use 'toUtf8' to convert bytes32 back to strings*/
-          cartItems[web3.toUtf8(cartArray[i])] = "cartItem-" + i;
+      return deployedContract.getCartItems();
+      
+    }).then(function(cartArray){
+      console.log(cartArray.length);
+      for (let i=0; i < cartArray.length; i++) {
+/*        We had stored item names as byes32 on the blockchain,
+        so we'll use 'toUtf8' to convert bytes32 back to strings*/
+
+        var converted = web3.toUtf8(cartArray[i]);
+        if (!(cartItems.includes(converted))) {
+          cartItems.push(web3.toUtf8(cartArray[i]));
         }
+      }
         // Once we're done retrieving cart items, we use the array to fill out the rows in the front-end
         // table.
         self.setupCartRows();
         self.populateCartQty();
-      });
-    });
-  },
-
-  populateCartQty: function() {
-    let itemNames  = Object.keys(cartItems);
-    for (var i = 0; i < itemNames.length; i++) {
-      let currItem = itemNames[i];
-      Shop.deployed().then(function(contractInstance) {
-        contractInstance.getItemCount.call(currItem).then(function(v) {
-          $("#" + cartItems[currItem]).html(v.toString());
-        });
-      });
-    }
+    }).catch(function(e){
+      console.log(e);
+    })
   },
 
   /* This function goes through each item in the cartItems array and places it in the HTML table. */
   setupCartRows: function() {
     $("#cartTable tbody tr").remove();
-    Object.keys(cartItems).forEach(function (item) { 
-      $("#cartItem-rows").append("<tr><td>" + item + "</td><td id='" + cartItems[item] + "'></td></tr>");
+    // Object.keys(cartItems).forEach(function (item) { 
+    cartItems.forEach(function (item) { 
+      $("#cartItem-rows").append("<tr><td>" + item + "</td><td id='" + item + "'></td></tr>");
     });
+  },
+
+  populateCartQty: function() {
+    var self = this; 
+    //let itemNames  = Object.keys(cartItems);
+    for (var i = 0; i < cartItems.length; i++) {
+      let currItem = cartItems[i];
+      Shop.deployed().then(function(contractInstance) {
+        contractInstance.getItemCount.call(currItem).then(function(v) {
+          $("#" + currItem).html(v.toString());
+        });
+      });
+    }
+    self.updateCartTotals();
   },
 
   /* This function calls on the contracts getCartItems() and getTotalPrice() functions to retrieve
@@ -22408,10 +22464,10 @@ window.App = {
     Shop.deployed().then(function(instance){
       deployedContract=instance;
 
-      deployedContract.getCartItems().then(function(cartArray){
-        console.log("cart length: ", cartArray.length);
+      deployedContract.getTotalCount().then(function(itemsInCart){
+        console.log("cart length: ", itemsInCart.toNumber());
         var total_items_element = document.getElementById("totalItems");
-        total_items_element.innerHTML = cartArray.length;
+        total_items_element.innerHTML = itemsInCart.toNumber();
       })
 
       deployedContract.getTotalPrice().then(function(totalPrice){
@@ -22422,7 +22478,6 @@ window.App = {
     })
   },
 
-  /* Add the given item into the cart from the contract, then update the cart information in front-end*/
   addToCart: function(item) {
     var self = this;
     var deployedContract;
@@ -22430,16 +22485,50 @@ window.App = {
     Shop.deployed().then(function(instance){
       deployedContract = instance;
 
-      return deployedContract.addItem(item, {from: account});
-    }).then(function(value){
-      console.log("item added");
-      self.populateCart();
-      self.updateCartTotals();
+      deployedContract.addItem(item, {from: account}).then(function() {
+        return deployedContract.getCartItems().then(function(cartArray){
+          console.log("cartArray length: ",cartArray.length);
+          for (let i=0; i < cartArray.length; i++) {
+          /* We had stored item names as byes32 on the blockchain,
+            so we'll use 'toUtf8' to convert bytes32 back to strings*/
+            var converted = web3.toUtf8(cartArray[i]);
+            if (!(cartItems.includes(converted))) {
+              cartItems.push(web3.toUtf8(cartArray[i]));
+            }
+            
+          }
+            // Once we're done retrieving cart items, we use the array to fill out the rows in the front-end
+            // table.
+          self.setupCartRows();
+          self.populateCartQty();
+        })
+      })
+    })
+  },
 
-    }).catch(function(e){
-      console.log(e);
+  checkout: function(){
+    var self = this;
+    var deployedContract;
+    var seller;
+
+    Shop.deployed().then(function(instance){
+      deployedContract = instance;
+
+      deployedContract.getSeller().then(function(result){
+        console.log("seller: ", result);
+        seller = result;
+
+        deployedContract.getTotalPrice().then(function(totalPrice){
+
+        web3.eth.sendTransaction({from: account, to: seller, value: web3.toWei(totalPrice, "ether")}, function(err, addr){
+            if(!err) {
+              console.log("transaction complete. receipt addr: ", addr);
+              self.refreshBalance();
+            }
+          });
+        });
+      });
     });
-
   },
 
 };

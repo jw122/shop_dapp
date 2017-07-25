@@ -180,6 +180,31 @@ window.App = {
     })
   },
 
+  checkout: function(){
+    var self = this;
+    var deployedContract;
+    var seller;
+
+    Shop.deployed().then(function(instance){
+      deployedContract = instance;
+
+      deployedContract.getSeller().then(function(result){
+        console.log("seller: ", result);
+        seller = result;
+
+        deployedContract.getTotalPrice().then(function(totalPrice){
+
+        return web3.eth.sendTransaction({from: account, to: seller, value: web3.toWei(totalPrice, "ether")}, function(err, addr){
+            if(!err) {
+              console.log("transaction complete. receipt addr: ", addr);
+              self.refreshBalance();
+            }
+          });
+        });
+      });
+    });
+  },
+
 };
 
 window.addEventListener('load', function() {
