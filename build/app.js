@@ -22080,6 +22080,42 @@ module.exports = {
 		},
 		{
 			"constant": true,
+			"inputs": [
+				{
+					"name": "",
+					"type": "bytes32"
+				}
+			],
+			"name": "cartItems",
+			"outputs": [
+				{
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"payable": false,
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [
+				{
+					"name": "item",
+					"type": "bytes32"
+				}
+			],
+			"name": "getItemCount",
+			"outputs": [
+				{
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"payable": false,
+			"type": "function"
+		},
+		{
+			"constant": true,
 			"inputs": [],
 			"name": "getTotalPrice",
 			"outputs": [
@@ -22102,7 +22138,7 @@ module.exports = {
 			"type": "constructor"
 		}
 	],
-	"unlinked_binary": "0x6060604052341561000c57fe5b6040516020806104c283398101604052515b60008054600160a060020a03338116600160a060020a03199283161783556001805491851691909216178155600282815560046020527f90cc07102e7701a40d3b2ba6a8c5e498b2975917b3e06e2c671894977251252c8190557ff1ed18ef7ef4bc50b5a966499966566f5e3deeedf3332b40355c637e4efbdf348290557f9f94ae92387be583cc3362a4289bd23feea8ead697ab7397d00536aaba6bcf87557fe49ec8d58da158425687a31550ad192302fb9e3db36bab9cce8d38187f73c23c81905560037f1cea2f3f7efb5c8afe116e8a774b2d0ff04ac9c6037322fee9b131beb03a2d87557f68657273686579734b69737365730000000000000000000000000000000000009091527f69df4685c3c43228d8eb321d9622cb906611c2f973dc3643eb9dbfa2a25e66e3555b505b6103648061015e6000396000f300606060405236156100725763ffffffff60e060020a60003504166305e410dd811461007457806308551a53146100df5780631d586f7c1461010b5780632c95ad52146101305780633da8bfc914610145578063641f2a5e146101675780637150d8ae1461018c578063f475409f146101b8575bfe5b341561007c57fe5b6100846101da565b60408051602080825283518183015283519192839290830191858101910280838382156100cc575b8051825260208311156100cc57601f1990920191602091820191016100ac565b5050509050019250505060405180910390f35b34156100e757fe5b6100ef61023a565b60408051600160a060020a039092168252519081900360200190f35b341561011357fe5b61011e600435610249565b60408051918252519081900360200190f35b341561013857fe5b61014360043561026c565b005b341561014d57fe5b61011e6102ad565b60408051918252519081900360200190f35b341561016f57fe5b61011e6004356102b3565b60408051918252519081900360200190f35b341561019457fe5b6100ef6102c5565b60408051600160a060020a039092168252519081900360200190f35b34156101c057fe5b61011e6102d4565b60408051918252519081900360200190f35b6101e26102db565b600380548060200260200160405190810160405280929190818152602001828054801561022f57602002820191906000526020600020905b8154815260019091019060200180831161021a575b505050505090505b90565b600154600160a060020a031681565b600380548290811061025757fe5b906000526020600020900160005b5054905081565b600380546001810161027e83826102ed565b916000526020600020900160005b50829055506000818152600460205260409020546002805490910190555b50565b60025481565b60046020526000908152604090205481565b600054600160a060020a031681565b6002545b90565b60408051602081019091526000815290565b81548183558181151161031157600083815260209020610311918101908301610317565b5b505050565b61023791905b80821115610331576000815560010161031d565b5090565b905600a165627a7a723058202d9abf66e01b0ab044f64083ad6e17c9ed4e705ecd4b126199ba1c428af4d1410029",
+	"unlinked_binary": "0x6060604052341561000c57fe5b60405160208061055a83398101604052515b60008054600160a060020a03338116600160a060020a03199283161783556001805491851691909216178155600282815560046020527f90cc07102e7701a40d3b2ba6a8c5e498b2975917b3e06e2c671894977251252c8190557ff1ed18ef7ef4bc50b5a966499966566f5e3deeedf3332b40355c637e4efbdf348290557f9f94ae92387be583cc3362a4289bd23feea8ead697ab7397d00536aaba6bcf87557fe49ec8d58da158425687a31550ad192302fb9e3db36bab9cce8d38187f73c23c81905560037f1cea2f3f7efb5c8afe116e8a774b2d0ff04ac9c6037322fee9b131beb03a2d87557f68657273686579734b69737365730000000000000000000000000000000000009091527f69df4685c3c43228d8eb321d9622cb906611c2f973dc3643eb9dbfa2a25e66e3555b505b6103fc8061015e6000396000f300606060405236156100885763ffffffff60e060020a60003504166305e410dd811461008a57806308551a53146100f55780631d586f7c146101215780632c95ad52146101465780633da8bfc91461015b578063641f2a5e1461017d5780637150d8ae146101a2578063b51dc543146101ce578063b67dfb5c146101f3578063f475409f14610218575bfe5b341561009257fe5b61009a61023a565b60408051602080825283518183015283519192839290830191858101910280838382156100e2575b8051825260208311156100e257601f1990920191602091820191016100c2565b5050509050019250505060405180910390f35b34156100fd57fe5b61010561029a565b60408051600160a060020a039092168252519081900360200190f35b341561012957fe5b6101346004356102a9565b60408051918252519081900360200190f35b341561014e57fe5b6101596004356102cc565b005b341561016357fe5b61013461031e565b60408051918252519081900360200190f35b341561018557fe5b610134600435610324565b60408051918252519081900360200190f35b34156101aa57fe5b610105610336565b60408051600160a060020a039092168252519081900360200190f35b34156101d657fe5b610134600435610345565b60408051918252519081900360200190f35b34156101fb57fe5b610134600435610357565b60408051918252519081900360200190f35b341561022057fe5b61013461036c565b60408051918252519081900360200190f35b610242610373565b600380548060200260200160405190810160405280929190818152602001828054801561028f57602002820191906000526020600020905b8154815260019091019060200180831161027a575b505050505090505b90565b600154600160a060020a031681565b60038054829081106102b757fe5b906000526020600020900160005b5054905081565b60038054600181016102de8382610385565b916000526020600020900160005b508290555060008181526004602090815260408083205460028054909101905560059091529020805460010190555b50565b60025481565b60046020526000908152604090205481565b600054600160a060020a031681565b60056020526000908152604090205481565b6000818152600560205260409020545b919050565b6002545b90565b60408051602081019091526000815290565b8154818355818115116103a9576000838152602090206103a99181019083016103af565b5b505050565b61029791905b808211156103c957600081556001016103b5565b5090565b905600a165627a7a723058203bcf5fdc584d3185a7e53a570108b5413c6509445e70a279e8d0a1200ce97af70029",
 	"networks": {
 		"1500689487744": {
 			"events": {},
@@ -22115,10 +22151,22 @@ module.exports = {
 			"links": {},
 			"address": "0xcd3a7a7a3478da3ed9ccd934c8f03d9f07c092d9",
 			"updated_at": 1500818873218
+		},
+		"1500914293932": {
+			"events": {},
+			"links": {},
+			"address": "0xfe544ff2be9bb3b4e7b816286a7ae228d87bc18c",
+			"updated_at": 1500933041314
+		},
+		"1500994241545": {
+			"events": {},
+			"links": {},
+			"address": "0xbe9e2739b4a5fa769c468f48dd088628e7c62f1f",
+			"updated_at": 1500994305637
 		}
 	},
 	"schema_version": "0.0.5",
-	"updated_at": 1500818873218
+	"updated_at": 1500994305637
 };
 
 /***/ }),
@@ -22243,6 +22291,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 var Shop = __WEBPACK_IMPORTED_MODULE_2_truffle_contract___default()(__WEBPACK_IMPORTED_MODULE_3__build_contracts_Shop_json___default.a);
 
+// A list to represent the cart array from the contract
+let cartItems = {}
+
 // The following code is simple to show off interacting with your contracts.
 // As your needs grow you will likely need to change its form and structure.
 // For application bootstrapping, check out window.addEventListener below.
@@ -22253,8 +22304,7 @@ window.App = {
   start: function() {
     var self = this;
 
-    // Bootstrap the MetaCoin abstraction for Use.
-    MetaCoin.setProvider(web3.currentProvider);
+    Shop.setProvider(web3.currentProvider);
 
     // Get the initial account balance so it can be displayed.
     web3.eth.getAccounts(function(err, accs) {
@@ -22271,9 +22321,108 @@ window.App = {
       accounts = accs;
       account = accounts[0];
 
+      // Upon launching the window, we want to refresh the buyer's balance and update the cart.
+      self.refreshBalance();
+      self.populateCart();
+      self.updateCartTotals();
     });
   },
 
+  /* This function will call web3.eth.getBalance to retrive the current balance, in Wei, 
+  of the selected account. */
+  refreshBalance: function() {
+    var self = this;
+    var deployedContract;
+    var balance;
+
+    Shop.deployed().then(function(instance){
+      deployedContract = instance;
+      return web3.eth.getBalance(account, function(err, bal) {
+
+        if (err!= null) {
+          alert("There was an error getting your balance.");
+          return;
+        }
+
+        balance = bal;
+        var balance_element = document.getElementById("balance");
+        balance_element.innerHTML = balance.toNumber();
+
+      })
+
+      }).catch(function(e){
+        console.log(e);
+      });
+
+  },
+
+  /* This function will trigger the getCartItems() function in the contract to retrive the cart array,
+  and then loop through the array to populate the cartItems array in this .js environment. */
+  populateCart: function() {
+    var self = this;
+    var deployedContract;
+
+    Shop.deployed().then(function(instance) {
+      deployedContract = instance;
+      deployedContract.getCartItems().then(function(cartArray){
+        console.log(cartArray)
+        for (let i=0; i < cartArray.length; i++) {
+          /*We had stored item names as byes32 on the blockchain,
+          so we'll use 'toUtf8' to convert bytes32 back to strings*/
+          cartItems[web3.toUtf8(cartArray[i])] = "cartItem-" + i;
+        }
+        // Once we're done retrieving cart items, we use the array to fill out the rows in the front-end
+        // table.
+        self.setupCartRows();
+        self.populateCartQty();
+      });
+    });
+  },
+
+  populateCartQty: function() {
+    let itemNames  = Object.keys(cartItems);
+    for (var i = 0; i < itemNames.length; i++) {
+      let currItem = itemNames[i];
+      Shop.deployed().then(function(contractInstance) {
+        contractInstance.getItemCount.call(currItem).then(function(v) {
+          $("#" + cartItems[currItem]).html(v.toString());
+        });
+      });
+    }
+  },
+
+  /* This function goes through each item in the cartItems array and places it in the HTML table. */
+  setupCartRows: function() {
+    $("#cartTable tbody tr").remove();
+    Object.keys(cartItems).forEach(function (item) { 
+      $("#cartItem-rows").append("<tr><td>" + item + "</td><td id='" + cartItems[item] + "'></td></tr>");
+    });
+  },
+
+  /* This function calls on the contracts getCartItems() and getTotalPrice() functions to retrieve
+  the cart's totals. Then it udpates the front-end elements accordingly. */
+  updateCartTotals: function() {
+    var self = this;
+    var deployedContract;
+
+    Shop.deployed().then(function(instance){
+      deployedContract=instance;
+
+      deployedContract.getCartItems().then(function(cartArray){
+        console.log("cart length: ", cartArray.length);
+        var total_items_element = document.getElementById("totalItems");
+        total_items_element.innerHTML = cartArray.length;
+      })
+
+      deployedContract.getTotalPrice().then(function(totalPrice){
+        console.log("total price: ", totalPrice.toNumber());
+        var total_price_element = document.getElementById("totalPrice");
+        total_price_element.innerHTML = totalPrice.toNumber();
+      })
+    })
+  },
+
+  /* Add the given item into the cart from the contract, then update the cart information in front-end*/
   addToCart: function(item) {
     var self = this;
     var deployedContract;
@@ -22284,11 +22433,13 @@ window.App = {
       return deployedContract.addItem(item, {from: account});
     }).then(function(value){
       console.log("item added");
+      self.populateCart();
+      self.updateCartTotals();
 
     }).catch(function(e){
       console.log(e);
     });
-    
+
   },
 
 };
@@ -22296,7 +22447,7 @@ window.App = {
 window.addEventListener('load', function() {
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
   if (typeof web3 !== 'undefined') {
-    console.warn("Using web3 detected from external source. If you find that your accounts don't appear or you have 0 MetaCoin, ensure you've configured that source properly. If using MetaMask, see the following link. Feel free to delete this warning. :) http://truffleframework.com/tutorials/truffle-and-metamask")
+    console.warn("Using web3 detected from external source. If you find that your accounts don't appear or you have 0 Wei, ensure you've configured that source properly. If using MetaMask, see the following link. Feel free to delete this warning. :) http://truffleframework.com/tutorials/truffle-and-metamask")
     // Use Mist/MetaMask's provider
     window.web3 = new __WEBPACK_IMPORTED_MODULE_1_web3___default.a(web3.currentProvider);
   } else {
@@ -25492,7 +25643,7 @@ exports = module.exports = __webpack_require__(81)();
 
 
 // module
-exports.push([module.i, "body {\n  font-family: \"Open Sans\", sans-serif;\n}\n\nlabel {\n  display: inline-block;\n  width: 100px;\n}\n\ninput {\n  width: 500px;\n  padding: 5px;\n  font-size: 16px;\n}\n\nbutton {\n  font-size: 16px;\n  padding: 5px;\n}\n\nh1, h2 {\n  display: inline-block;\n  vertical-align: middle;\n  margin-top: 0px;\n  margin-bottom: 10px;\n}\n\nh2 {\n  color: #AAA;\n  font-size: 32px;\n}\n\nh3 {\n  font-weight: normal;\n  color: #AAA;\n  font-size: 24px;\n}\n\n.black {\n  color: black;\n}\n\n#balance {\n  color: black;\n}\n\n.hint {\n  color: #666;\n}\n", ""]);
+exports.push([module.i, "body {\n/*  font-family: \"Open Sans\", sans-serif;*/\n}\n\nlabel {\n  display: inline-block;\n  width: 100px;\n}\n\ninput {\n  width: 500px;\n  padding: 5px;\n  font-size: 16px;\n}\n\n/*\nbutton {\n  font-size: 16px;\n  padding: 5px;\n}*/\n\nh1, h2 {\n  display: inline-block;\n  vertical-align: middle;\n  margin-top: 0px;\n  margin-bottom: 10px;\n}\n\nh2 {\n  color: #AAA;\n  font-size: 32px;\n}\n\nh3 {\n  font-weight: normal;\n  color: #AAA;\n  font-size: 24px;\n}\n\n.black {\n  color: black;\n}\n\n#balance {\n  color: black;\n}\n\n.hint {\n  color: #666;\n}\n", ""]);
 
 // exports
 

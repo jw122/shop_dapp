@@ -43,7 +43,7 @@ window.App = {
       // Upon launching the window, we want to refresh the buyer's balance and update the cart.
       self.refreshBalance();
       self.populateCart();
-      self.updateCartTotals();
+      //self.updateCartTotals();
     });
   },
 
@@ -81,24 +81,28 @@ window.App = {
     var self = this;
     var deployedContract;
 
+
     Shop.deployed().then(function(instance) {
       deployedContract = instance;
-      deployedContract.getCartItems().then(function(cartArray){
-        console.log(cartArray)
-        for (let i=0; i < cartArray.length; i++) {
-          /*We had stored item names as byes32 on the blockchain,
-          so we'll use 'toUtf8' to convert bytes32 back to strings*/
-          cartItems[web3.toUtf8(cartArray[i])] = "cartItem-" + i;
-        }
+      return deployedContract.getCartItems();
+    }).then(function(cartArray){
+      console.log(cartArray.length);
+      for (let i=0; i < cartArray.length; i++) {
+/*        We had stored item names as byes32 on the blockchain,
+        so we'll use 'toUtf8' to convert bytes32 back to strings*/
+        cartItems[web3.toUtf8(cartArray[i])] = "cartItem-" + i;
+      }
         // Once we're done retrieving cart items, we use the array to fill out the rows in the front-end
         // table.
         self.setupCartRows();
         self.populateCartQty();
-      });
-    });
+    }).catch(function(e){
+      console.log(e);
+    })
   },
 
   populateCartQty: function() {
+    var self = this; 
     let itemNames  = Object.keys(cartItems);
     for (var i = 0; i < itemNames.length; i++) {
       let currItem = itemNames[i];
@@ -108,6 +112,7 @@ window.App = {
         });
       });
     }
+    self.updateCartTotals();
   },
 
   /* This function goes through each item in the cartItems array and places it in the HTML table. */
@@ -141,7 +146,6 @@ window.App = {
     })
   },
 
-  /* Add the given item into the cart from the contract, then update the cart information in front-end*/
   addToCart: function(item) {
     var self = this;
     var deployedContract;
@@ -149,16 +153,21 @@ window.App = {
     Shop.deployed().then(function(instance){
       deployedContract = instance;
 
-      return deployedContract.addItem(item, {from: account});
-    }).then(function(value){
-      console.log("item added");
-      self.populateCart();
-      self.updateCartTotals();
-
-    }).catch(function(e){
-      console.log(e);
-    });
-
+      deployedContract.addItem(item, {from: account}).then(function() {
+        return deployedContract.getCartItems().then(function(cartArray){
+          console.log("cartArray length: ",cartArray.length);
+          for (let i=0; i < cartArray.length; i++) {
+          /* We had stored item names as byes32 on the blockchain,
+            so we'll use 'toUtf8' to convert bytes32 back to strings*/
+            cartItems[web3.toUtf8(cartArray[i])] = "cartItem-" + i;
+          }
+            // Once we're done retrieving cart items, we use the array to fill out the rows in the front-end
+            // table.
+          self.setupCartRows();
+          self.populateCartQty();
+        })
+      })
+    })
   },
 
 };

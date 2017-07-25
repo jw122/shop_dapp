@@ -9,7 +9,7 @@ contract Shop {
     uint public currentTotal; // We'll use a uint to keep track of the cart's total price
     bytes32[] public cart; // Buyer's list of items, aka cart: an array of bytes32
     mapping (bytes32 => uint) public priceTable; // We use a map to keep track of each item's price
-    mapping (bytes32 => uint) public cartItems;
+    mapping (bytes32 => uint) public cartItems; // A mapping from cart item to quantity
   /* The constructor will take in the seller's address as a parameter. It will also initialize the buyer, seller, 
   currentTotal and priceTable variables. The constructor will be called once when you deploy the contract
   to the blockchain. */
