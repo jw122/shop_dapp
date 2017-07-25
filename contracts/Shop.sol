@@ -27,7 +27,7 @@ contract Shop {
     priceTable["honeyMilkTea"] = 1;
     priceTable["tiramisu"] = 2;
     priceTable["vanillaIceCream"] = 1;
-    priceTable["giantKitKat"] = 3;
+    priceTable["froyo"] = 3;
     priceTable["hersheysKisses"] = 1;
     
   }
@@ -58,7 +58,7 @@ contract Shop {
   function getTotalCount() constant returns (uint) {
     return itemsInCart;
   }
-  
+
   function getSeller() constant returns(address) {
     return seller;
   }
