@@ -11,7 +11,7 @@ import shop_artifacts from '../../build/contracts/Shop.json'
 var Shop = contract(shop_artifacts);
 
 // A list to represent the cart array from the contract
-let cartItems = {}
+let cartItems = []
 
 // The following code is simple to show off interacting with your contracts.
 // As your needs grow you will likely need to change its form and structure.
@@ -85,12 +85,18 @@ window.App = {
     Shop.deployed().then(function(instance) {
       deployedContract = instance;
       return deployedContract.getCartItems();
+      
     }).then(function(cartArray){
       console.log(cartArray.length);
       for (let i=0; i < cartArray.length; i++) {
 /*        We had stored item names as byes32 on the blockchain,
         so we'll use 'toUtf8' to convert bytes32 back to strings*/
-        cartItems[web3.toUtf8(cartArray[i])] = "cartItem-" + i;
+        //cartItems[web3.toUtf8(cartArray[i])] = "cartItem-" + i;
+        //cartItems.push(web3.toUtf8(cartArray[i]));
+        var converted = web3.toUtf8(cartArray[i]);
+        if (!(cartItems.includes(converted))) {
+          cartItems.push(web3.toUtf8(cartArray[i]));
+        }
       }
         // Once we're done retrieving cart items, we use the array to fill out the rows in the front-end
         // table.
@@ -101,26 +107,27 @@ window.App = {
     })
   },
 
+  /* This function goes through each item in the cartItems array and places it in the HTML table. */
+  setupCartRows: function() {
+    $("#cartTable tbody tr").remove();
+    // Object.keys(cartItems).forEach(function (item) { 
+    cartItems.forEach(function (item) { 
+      $("#cartItem-rows").append("<tr><td>" + item + "</td><td id='" + item + "'></td></tr>");
+    });
+  },
+  
   populateCartQty: function() {
     var self = this; 
-    let itemNames  = Object.keys(cartItems);
-    for (var i = 0; i < itemNames.length; i++) {
-      let currItem = itemNames[i];
+    //let itemNames  = Object.keys(cartItems);
+    for (var i = 0; i < cartItems.length; i++) {
+      let currItem = cartItems[i];
       Shop.deployed().then(function(contractInstance) {
         contractInstance.getItemCount.call(currItem).then(function(v) {
-          $("#" + cartItems[currItem]).html(v.toString());
+          $("#" + currItem).html(v.toString());
         });
       });
     }
     self.updateCartTotals();
-  },
-
-  /* This function goes through each item in the cartItems array and places it in the HTML table. */
-  setupCartRows: function() {
-    $("#cartTable tbody tr").remove();
-    Object.keys(cartItems).forEach(function (item) { 
-      $("#cartItem-rows").append("<tr><td>" + item + "</td><td id='" + cartItems[item] + "'></td></tr>");
-    });
   },
 
   /* This function calls on the contracts getCartItems() and getTotalPrice() functions to retrieve
@@ -159,7 +166,12 @@ window.App = {
           for (let i=0; i < cartArray.length; i++) {
           /* We had stored item names as byes32 on the blockchain,
             so we'll use 'toUtf8' to convert bytes32 back to strings*/
-            cartItems[web3.toUtf8(cartArray[i])] = "cartItem-" + i;
+            //cartItems[web3.toUtf8(cartArray[i])] = "cartItem-" + i;
+            var converted = web3.toUtf8(cartArray[i]);
+            if (!(cartItems.includes(converted))) {
+              cartItems.push(web3.toUtf8(cartArray[i]));
+            }
+            
           }
             // Once we're done retrieving cart items, we use the array to fill out the rows in the front-end
             // table.
