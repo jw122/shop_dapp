@@ -7,9 +7,11 @@ contract Shop {
     address public buyer; // Buyer's address, in this case also msg.sender
     address public seller; // Seller's address, aka store owner
     uint public currentTotal; // We'll use a uint to keep track of the cart's total price
+    uint public itemsInCart;
     bytes32[] public cart; // Buyer's list of items, aka cart: an array of bytes32
     mapping (bytes32 => uint) public priceTable; // We use a map to keep track of each item's price
     mapping (bytes32 => uint) public cartItems; // A mapping from cart item to quantity
+
   /* The constructor will take in the seller's address as a parameter. It will also initialize the buyer, seller, 
   currentTotal and priceTable variables. The constructor will be called once when you deploy the contract
   to the blockchain. */
@@ -18,6 +20,7 @@ contract Shop {
     buyer = msg.sender;
     seller = _seller;
     currentTotal = 0;
+    itemsInCart = 0;
     
     // Is there a way to initialize this more elegantly?
     priceTable["acai"] = 2;
@@ -35,6 +38,7 @@ contract Shop {
       cart.push(item);
       currentTotal = currentTotal + priceTable[item];
       cartItems[item] += 1;
+      itemsInCart += 1;
   }
   
   /* This function simply returns the cart array itself */
@@ -49,6 +53,10 @@ contract Shop {
 
   function getItemCount(bytes32 item) constant returns (uint) {
     return cartItems[item];
+  }
+
+  function getTotalCount() constant returns (uint) {
+    return itemsInCart;
   }
 
 }

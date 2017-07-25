@@ -91,8 +91,7 @@ window.App = {
       for (let i=0; i < cartArray.length; i++) {
 /*        We had stored item names as byes32 on the blockchain,
         so we'll use 'toUtf8' to convert bytes32 back to strings*/
-        //cartItems[web3.toUtf8(cartArray[i])] = "cartItem-" + i;
-        //cartItems.push(web3.toUtf8(cartArray[i]));
+
         var converted = web3.toUtf8(cartArray[i]);
         if (!(cartItems.includes(converted))) {
           cartItems.push(web3.toUtf8(cartArray[i]));
@@ -115,7 +114,7 @@ window.App = {
       $("#cartItem-rows").append("<tr><td>" + item + "</td><td id='" + item + "'></td></tr>");
     });
   },
-  
+
   populateCartQty: function() {
     var self = this; 
     //let itemNames  = Object.keys(cartItems);
@@ -139,10 +138,10 @@ window.App = {
     Shop.deployed().then(function(instance){
       deployedContract=instance;
 
-      deployedContract.getCartItems().then(function(cartArray){
-        console.log("cart length: ", cartArray.length);
+      deployedContract.getTotalCount().then(function(itemsInCart){
+        console.log("cart length: ", itemsInCart.toNumber());
         var total_items_element = document.getElementById("totalItems");
-        total_items_element.innerHTML = cartArray.length;
+        total_items_element.innerHTML = itemsInCart.toNumber();
       })
 
       deployedContract.getTotalPrice().then(function(totalPrice){
@@ -166,7 +165,6 @@ window.App = {
           for (let i=0; i < cartArray.length; i++) {
           /* We had stored item names as byes32 on the blockchain,
             so we'll use 'toUtf8' to convert bytes32 back to strings*/
-            //cartItems[web3.toUtf8(cartArray[i])] = "cartItem-" + i;
             var converted = web3.toUtf8(cartArray[i]);
             if (!(cartItems.includes(converted))) {
               cartItems.push(web3.toUtf8(cartArray[i]));
