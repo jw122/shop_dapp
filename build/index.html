@@ -1,48 +1,128 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Candy Store</title>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <title>Desserts</title>
+  <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet" type='text/css'>
   <script src="./app.js"></script>
   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
-  <h1>Decentralized Candy Store</h1>
-  <h3>You have <span class="black"><span id="balance"></span> Wei</span></h3>
 
-  <h4><b>Acai Bowl</b></h4>
-  <h5>2 ether</h5>
-  <button onclick="App.addToCart('acai')">Add to cart</button>
-  <br><br>
+<body class="container">
 
-  <h4><b>Honey Milk Tea</b></h4>
-  <h5>1 ether</h5>
-  <button onclick="App.addToCart('honeyMilkTea')">Add to cart</button>
-  <br><br>
-
-  <h4><b>Tiramisu Cake</b></h4>
-  <h5>2 ether</h5>
-  <button onclick="App.addToCart('tiramisu')">Add to cart</button>
-  <br><br>
-
-  <div class="table-responsive">
-    <h3>My Cart</h3>
-    <table class="table table-bordered" id="cartTable">
-      <thead>
-<!--         <tr>
-          <th>Item</th> 
-          <th>Quantity</th>
-        </tr> -->
-      </thead>
-      <tbody id="cartItem-rows">
-      </tbody>
-    </table>
-    <h5>Total Items: <span id="totalItems"></span></h5>
-    <h5>Total Price (in ether): <span id="totalPrice"></span></h5>
-    <button onclick="App.checkout()">Check out cart</button>
+  <div class="jumbotron">
+    <div class="container text-center">
+      <h1>Decentralized Dessert Shop</h1>      
+      <h3>You have <span><span id="balance"></span> Wei</span></h3>
+    </div>
   </div>
 
-  <br>
-  <span class="hint"><strong>Hint:</strong> open the browser developer console to view any errors and warnings.</span>
+<!--   <div>
+    <div class="container text-center">
+      <h1>Decentralized Candy Store</h1>      
+      <h3>You have <span class="black"><span id="balance"></span> Wei</span></h3>
+    </div>
+  </div> -->
+
+<!-- Items div -->
+  <div class="col-sm-8 margin-top-3">
+
+    <div class="col-sm-4">
+      <div class="panel panel-success">
+        <div class="panel-heading">ACAI BOWL</div>
+        <div class="panel-body"><img src="http://media.istockphoto.com/vectors/ai-berries-with-leaves-icon-vector-id609795238?k=6&m=609795238&s=612x612&w=0&h=r-6tdowmqpb-qiFKDu4pvASJ6Y4LC-0ec4OI8fO_neA=" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">
+          <p>2 Ether</p>
+          <button onclick="App.addToCart('acai')">Add to cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4"> 
+      <div class="panel panel-success">
+        <div class="panel-heading">HONEY MILK TEA</div>
+        <div class="panel-body"><img src="https://s-media-cache-ak0.pinimg.com/originals/0c/20/79/0c2079992b46f99e06b53559385d9e31.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">
+          <p>1 Ether</p>
+          <button onclick="App.addToCart('honeyMilkTea')">Add to cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4"> 
+      <div class="panel panel-success">
+        <div class="panel-heading">TIRAMISU CAKE</div>
+        <div class="panel-body"><img src="http://images.clipartpanda.com/dessert-clipart-canstock18945825.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">
+          <p>2 Ether</p>
+          <button onclick="App.addToCart('tiramisu')">Add to cart</button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-sm-4">
+      <div class="panel panel-success">
+        <div class="panel-heading">VANILLA ICE CREAM</div>
+        <div class="panel-body"><img src="https://cdn.dribbble.com/users/27979/screenshots/762276/34-glace-vanille_1x.png" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">
+          <p>1 Ether</p>
+          <button onclick="App.addToCart('vanillaIceCream')">Add to cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4"> 
+      <div class="panel panel-success">
+        <div class="panel-heading">FROYO</div>
+        <div class="panel-body"><img src="https://s-media-cache-ak0.pinimg.com/originals/7a/43/0b/7a430bfcd6187eb5131dd0b3806337fd.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">
+          <p>3 Ether</p>
+          <button onclick="App.addToCart('froyo')">Add to cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4"> 
+      <div class="panel panel-success">
+        <div class="panel-heading">HERSHEY'S KISSES</div>
+        <div class="panel-body"><img src="http://www.underconsideration.com/brandnew/archives/hershey_company_icon.png" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">
+          <p>1 Ether</p>
+          <button onclick="App.addToCart('hersheysKisses')">Add to cart</button>
+        </div>      
+    </div>
+  </div>
+
+  </div>
+
+<!-- Cart div -->
+  <div class="col-sm-4 margin-top-3">
+    <div class="row">
+      <h2>My Cart</h2>
+          <div class="table-responsive">
+            <table class="table table-bordered" id="cartTable">
+              
+              <thead>
+              </thead>
+
+              <tbody id="cartItem-rows">
+              </tbody>
+
+            </table>
+            <h5>Total Items: <span id="totalItems"></span></h5>
+            <h5>Total Price (in ether): <span id="totalPrice"></span></h5>
+            <button onclick="App.checkout()">Check out cart</button>
+          </div>
+    </div>
+  </div>
+
+
+  <br><br>
+  <!-- <span class="hint"><strong>Hint:</strong> open the browser developer console to view any errors and warnings.</span> -->
 </body>
 </html>
