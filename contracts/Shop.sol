@@ -15,6 +15,7 @@ contract Shop {
   /* The constructor will take in the seller's address as a parameter. It will also initialize the buyer, seller, 
   currentTotal and priceTable variables. The constructor will be called once when you deploy the contract
   to the blockchain. */
+  
   function Shop(address _seller) {
     
     buyer = msg.sender;
